@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Credit Card Approval Prediction Result{% endblock %}
+
+{% block content %}
+<div class="max-w-5x10 mx-auto bg-white p-8 rounded-lg shadow-md">
+    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Prediction Result</h1>
+    {% if is_csv %}
+        {% if table %}
+            <div class="overflow-x-auto">
+                {{ table|safe }}
+            </div>
+        {% else %}
+            <p class="text-center text-gray-600">No data to display.</p>
+        {% endif %}
+    {% else %}
+        <div class="text-center">
+            <p class="text-2xl font-semibold mb-4">Status: 
+                <span class="{% if hasil == 'Disetujui' %}text-green-600{% else %}text-red-600{% endif %}">
+                    {{ hasil }}
+                </span>
+            </p>
+            <p class="text-xl">Approval Probability: {{ "%.2f"|format(probabilitas*100) }}%</p>
+        </div>
+    {% endif %}
+    <div class="mt-8 text-center">
+        <a href="/" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">Back to Form</a>
+    </div>
+</div>
+{% endblock %}

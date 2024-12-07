@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}Credit Card Approval Prediction Form{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Credit Card Approval Prediction</h1>
+    <form method="POST" class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div>
+                <label for="jenis_kelamin" class="block mb-2 text-sm font-medium text-gray-900">Jenis Kelamin</label>
+                <select id="jenis_kelamin" name="jenis_kelamin" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <option value="M">Pria</option>
+                    <option value="F">Wanita</option>
+                </select>
+            </div>
+            <div>
+                <label for="pemilik_mobil" class="block mb-2 text-sm font-medium text-gray-900">Pemilik Mobil</label>
+                <select id="pemilik_mobil" name="pemilik_mobil" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <option value="N">Tidak</option>
+                    <option value="Y">Ya</option>
+                </select>
+            </div>
+            <div>
+                <label for="pemilik_properti" class="block mb-2 text-sm font-medium text-gray-900">Pemilik Properti</label>
+                <select id="pemilik_properti" name="pemilik_properti" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <option value="N">Tidak</option>
+                    <option value="Y">Ya</option>
+                </select>
+            </div>
+            <div>
+                <label for="anak" class="block mb-2 text-sm font-medium text-gray-900">Jumlah Anak</label>
+                <input type="number" id="anak" name="anak" min="0" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            </div>
+            <div>
+                <label for="pendapatan_tahunan" class="block mb-2 text-sm font-medium text-gray-900">Pendapatan Tahunan</label>
+                <input type="number" id="pendapatan_tahunan" name="pendapatan_tahunan" min="0" step="0.01" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            </div>
+            <div>
+                <label for="jenis_pendapatan" class="block mb-2 text-sm font-medium text-gray-900">Jenis Pendapatan</label>
+                <select id="jenis_pendapatan" name="jenis_pendapatan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <option value="Commercial associate">Commercial associate</option>
+                    <option value="Pensioner">Pensioner</option>
+                    <option value="State servant">State servant</option>
+                    <option value="Working">Working</option>
+                </select>
+            </div>
+            <div>
+                <label for="pendidikan" class="block mb-2 text-sm font-medium text-gray-900">Pendidikan</label>
+                <select id="pendidikan" name="pendidikan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <option value="Academic degree">Academic degree</option>
+                    <option value="Higher education">Higher education</option>
+                    <option value="Incomplete higher">Incomplete higher</option>
+                    <option value="Lower secondary">Lower secondary</option>
+                    <option value="Secondary / secondary special">Secondary / secondary special</option>
+                </select>
+            </div>
+            <div>
+                <label for="status_perkawinan" class="block mb-2 text-sm font-medium text-gray-900">Status Perkawinan</label>
+                <select id="status_perkawinan" name="status_perkawinan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <option value="Civil marriage">Civil marriage</option>
+                    <option value="Married">Married</option>
+                    <option value="Separated">Separated</option>
+                    <option value="Single / not married">Single / not married</option>
+                    <option value="Widow">Widow</option>
+                </select>
+            </div>
+            <div>
+                <label for="jenis_rumah" class="block mb-2 text-sm font-medium text-gray-900">Jenis Rumah</label>
+                <select id="jenis_rumah" name="jenis_rumah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <option value="Co-op apartment">Co-op apartment</option>
+                    <option value="House / apartment">House / apartment</option>
+                    <option value="Municipal apartment">Municipal apartment</option>
+                    <option value="Office apartment">Office apartment</option>
+                    <option value="Rented apartment">Rented apartment</option>
+                    <option value="With parents">With parents</option>
+                </select>
+            </div>
+            <div>
+                <label for="usia" class="block mb-2 text-sm font-medium text-gray-900">Usia</label>
+                <input type="number" id="usia" name="usia" min="18" max="100" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            </div>
+            <div>
+                <label for="pengalaman_kerja" class="block mb-2 text-sm font-medium text-gray-900">Pengalaman Kerja (tahun)</label>
+                <input type="number" id="pengalaman_kerja" name="pengalaman_kerja" min="0" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            </div>
+            <div>
+                <label for="telepon_seluler" class="block mb-2 text-sm font-medium text-gray-900">Memiliki Telepon Seluler</label>
+                <select id="telepon_seluler" name="telepon_seluler" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <option value="1">Ya</option>
+                    <option value="0">Tidak</option>
+                </select>
+            </div>
+            <div>
+                <label for="telepon_kerja" class="block mb-2 text-sm font-medium text-gray-900">Memiliki Telepon Kerja</label>
+                <select id="telepon_kerja" name="telepon_kerja" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <option value="1">Ya</option>
+                    <option value="0">Tidak</option>
+                </select>
+            </div>
+            <div>
+                <label for="telepon" class="block mb-2 text-sm font-medium text-gray-900">Memiliki Telepon Rumah</label>
+                <select id="telepon" name="telepon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <option value="1">Ya</option>
+                    <option value="0">Tidak</option>
+                </select>
+            </div>
+            <div>
+                <label for="ID_email" class="block mb-2 text-sm font-medium text-gray-900">Memiliki Email</label>
+                <select id="ID_email" name="ID_email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <option value="1">Ya</option>
+                    <option value="0">Tidak</option>
+                </select>
+            </div>
+            <div>
+                <label for="anggota_keluarga" class="block mb-2 text-sm font-medium text-gray-900">Jumlah Anggota Keluarga</label>
+                <input type="number" id="anggota_keluarga" name="anggota_keluarga" min="1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            </div>
+        </div>
+        <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Prediksi</button>
+    </form>
+</div>
+{% endblock %}
